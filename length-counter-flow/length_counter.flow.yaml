@@ -1,0 +1,28 @@
+$schema: https://azuremlschemas.azureedge.net/latest/flow.schema.json
+name: length-counter-flow
+description: A Flex Flow that returns the length of the input text
+type: flex
+version: 1
+properties:
+  tags:
+    purpose: sample
+
+inputs:
+  input_text:
+    type: string
+
+outputs:
+  output_length:
+    type: integer
+
+graph:
+  nodes:
+    - name: compute_length
+      type: python_function
+      inputs:
+        input_text: ${{inputs.input_text}}
+      outputs:
+        output_length: ${{outputs.output_length}}
+      implementation:
+        path: ./code
+        entry_script: main.py

@@ -1,0 +1,4 @@
+{"name": "create_vpc", "description": "Provision a VPC network"},
+{"name": "provision_db", "description": "Create and configure a PostgreSQL database"},
+{"name": "deploy_backend", "description": "Deploy backend API to cloud"},
+{"name": "deploy_frontend", "description": "Deploy frontend app to a CDN or bucket"},

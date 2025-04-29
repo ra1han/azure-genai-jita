@@ -1,0 +1,20 @@
+{"url": "https://www.apple.com", "title": "Apple Official Site", "status": "normal"}
+{"url": "https://login-secure-apple.com/idlogin.php", "title": "Apple Login Secure", "status": "highly suspicious"}
+{"url": "https://www.microsoft.com/en-us", "title": "Microsoft Official Website", "status": "normal"}
+{"url": "http://account-update.microsoftsupport.xyz", "title": "Microsoft Account Update", "status": "highly suspicious"}
+{"url": "https://www.nytimes.com", "title": "The New York Times - Breaking News", "status": "normal"}
+{"url": "http://secure-nytimes-readonline.com", "title": "New York Times Secure Reading", "status": "suspicious"}
+{"url": "https://www.linkedin.com", "title": "LinkedIn: Log In or Sign Up", "status": "normal"}
+{"url": "http://linkedin.jobs-authenticator.com", "title": "LinkedIn Jobs Authenticator", "status": "highly suspicious"}
+{"url": "https://github.com", "title": "GitHub: Where the world builds software", "status": "normal"}
+{"url": "http://secure-github.com-userlogin.ml", "title": "GitHub User Login", "status": "highly suspicious"}
+{"url": "https://www.reddit.com", "title": "Reddit - Dive into anything", "status": "normal"}
+{"url": "http://reddit-safe-login.com", "title": "Reddit Secure Login", "status": "suspicious"}
+{"url": "https://openai.com", "title": "OpenAI - Discovering and enacting the path to safe AGI", "status": "normal"}
+{"url": "http://openai-account-verification.netlify.app", "title": "OpenAI Account Verification", "status": "highly suspicious"}
+{"url": "https://www.amazon.com", "title": "Amazon.com: Online Shopping", "status": "normal"}
+{"url": "http://amazon-secureorder-verification.com", "title": "Amazon Secure Order", "status": "highly suspicious"}
+{"url": "https://www.stackoverflow.com", "title": "Stack Overflow - Where Developers Learn and Share", "status": "normal"}
+{"url": "http://stackoverflow-helpcenter-login.web.app", "title": "Stack Overflow Helpcenter", "status": "suspicious"}
+{"url": "https://twitter.com", "title": "Twitter. It’s what’s happening / X", "status": "normal"}
+{"url": "http://twitter.account-recovery.center", "title": "Twitter Account Recovery", "status": "highly suspicious"}
