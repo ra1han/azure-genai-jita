@@ -8,38 +8,36 @@ All code changes should involve only new code generation without modifying exist
 
 ## Execution Plan
 
-For each Tool name, there is a corresponding folder under the tools directory that contains sample code demonstrating a similar action.
+### Step 1: custom_evaluator
 
-### Step 1: 
-
-Tool: custom_evaluator
+Check tools/custom_evaluator folder for sample implementaion of custom evaluator.
 
 Arguments:
 ```json
 "Create a custom evaluator for Azure AI evaluation library that measures the length of the input."
 ```
 
-### Step 2: 
+### Step 2: custom_llm_judge_evaluator
 
-Tool: custom_llm_judge_evaluator
+Check tools/custom_llm_judge_evaluator folder for sample implementaion of custom llm as judge evaluator.
 
 Arguments:
 ```json
 "Create a second custom evaluator using LLM as judge to detect any obscenity in the input."
 ```
 
-### Step 3: 
+### Step 3: register_evaluator_aif
 
-Tool: register_evaluator_aif
+Check tools/register_evaluator_aif folder for sample implementaion of register_evaluator_aif.
 
 Arguments:
 ```json
 "Register both custom evaluators to Azure AI Foundry."
 ```
 
-### Step 4: 
+### Step 4: cloud_exp
 
-Tool: cloud_exp
+Check tools/cloud_exp folder for sample implementaion of cloud_exp.
 
 Arguments:
 ```json
