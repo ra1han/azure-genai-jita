@@ -1,17 +1,6 @@
-import openai
 import json
 import os
 from openai import AzureOpenAI
-
-
-# ------------------ Define Tools -------------------
-
-# Load tools from tools.json file
-with open(os.path.join('tools', 'tools.json'), 'r') as f:
-    TOOLS = json.load(f)
-
-with open(os.path.join('prompts', 'planner.md'), 'r') as f:
-    system_prompt = f.read()
 
 # ------------------ Planner Tool -------------------
 
@@ -42,9 +31,6 @@ generate_plan_tool = {
     }
 }
 
-# ------------------ Planning & Execution -------------------
-
-# 🔹 Function to request a plan from OpenAI
 def generate_plan(goal):
     messages = [
         {"role": "system", "content": system_prompt},
@@ -58,30 +44,26 @@ def generate_plan(goal):
     )
 
     response = client.chat.completions.create(
-        model="gpt-4",  # or your actual deployment name
+        model="gpt-4",
         messages=messages,
         tools=[generate_plan_tool],
         tool_choice={"type": "function", "function": {"name": "generate_plan"}},
         # tool_parameter=json.dumps({"goal": goal, "available_tools": TOOLS})
     )
 
-    # Extract the tool call result
     tool_call = response.choices[0].message.tool_calls[0]
     plan_json = json.loads(tool_call.function.arguments)
     
     return plan_json.get("plan", [])
 
-# 🔹 Function to display the plan
 def display_plan(plan):
     print("\n🛠️ Execution Plan Generated:")
     for step in plan:
         print(f"🔹 Step {step['step']}: Call `{step['function']}` with args {step.get('arguments', {})}")
 
-# 🔹 Function to save plan to a README file
-def save_plan_to_readme(user_goal, plan):
-    readme_path = os.path.join('ra', 'README.md')
+def save_plan_to_readme(ra_title, user_goal, plan):
+    readme_path = os.path.join('reference_architecture', f'{ra_title}.md')
     
-    # Create content for README
     content = f"# Execution Plan\n\n## User Goal\n\n{user_goal}\n\n## Generated Plan\n\n"
     for step in plan:
         content += f"### Step {step['step']}: {step['function']}\n\n"
@@ -90,25 +72,39 @@ def save_plan_to_readme(user_goal, plan):
             content += json.dumps(step['arguments'], indent=2)
             content += "\n```\n\n"
     
-    # Save to file
     with open(readme_path, 'w') as f:
         f.write(content)
     
     print(f"\n✅ Plan saved to {readme_path}")
 
-# 🔹 Main program
+def load_system_prompt():
+    with open(os.path.join('tools', 'tools.jsonl'), 'r') as f:
+        tools = f.read()
+
+    with open(os.path.join('prompts', 'planner_system_prompt.md'), 'r') as f:
+        system_prompt = f.read()
+
+    system_prompt = system_prompt.replace("{{tools}}", json.dumps(tools))
+
+    return system_prompt
+
 if __name__ == "__main__":
-    user_goal = "Develop a plan of actions that does the following things - develops two new custom metrics which can be used with azure ai evalution sdk and then register those to AI foundry and run a cloud evalution. Finally make a CI pipeline which triggers every time there is a pull request against the main branch. The pipeline should run the evaluation using the two custom evaluators."
+    ra_title = "ai_foundry_custom_metrics"
+    user_goal = "Develop an action plan that does the following:\
+                    - Creates two new custom metrics compatible with the Azure AI Evaluation SDK. One metric uses calculates the length of the input. The other metric uses LLM as judge to detect any obscenity in the input.\
+                    - Registers the two custom metrics in Azure AI Foundry.\
+                    - Runs a cloud evaluation using the two metrics which uses an existing dataset in Azure AI Foundry.\
+                    "
+    
+    system_prompt = load_system_prompt()
+
     print(f"\n🎯 Generating plan for: {user_goal}")
 
-    # Generate plan from OpenAI
     execution_plan = generate_plan(user_goal)
 
-    # Display the execution plan
     display_plan(execution_plan)
     
-    # Ask user if they want to save the plan
     save_choice = input("\n💾 Do you want to save this plan? (Y/N): ")
     if save_choice.upper() == 'Y':
-        save_plan_to_readme(user_goal, execution_plan)
+        save_plan_to_readme(ra_title, user_goal, execution_plan)
 

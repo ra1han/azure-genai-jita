@@ -1,7 +1,0 @@
-[
-  {"name": "custom_evaluator", "description": "This is a sample implementation of a custom evaluator to be used by azure ai evaluation library to run experiments."},
-  {"name": "custom_llm_judge_evaluator", "description": "This is a sample implementation of a custom evaluator with llm as judge to be used by azure ai evaluation library to run experiments. The prompt used in this evaluator is in the prompty file (uses prompty library) in the same directory."},
-  {"name": "register_evaluator_aif", "description": "This is a sample code to demonstrate how to register custom evaluators to Azure AI Foundry."},
-  {"name": "local_exp", "description": "This is a sample code to demonstrate how to run local experiments using built in and custom evaluators."},
-  {"name": "cloud_exp", "description": "This is a sample code to demonstrate how to run cloud experiments using built in and custom evaluators in Azure AI Foundry."}
-]
