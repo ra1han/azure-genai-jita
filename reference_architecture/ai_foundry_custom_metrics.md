@@ -8,9 +8,29 @@ Develop an action plan that does the following:                    - Creates two
 
 ### Step 1: custom_evaluator
 
+Arguments:
+```json
+"Create a custom evaluator for Azure AI evaluation library that measures the length of the input."
+```
+
 ### Step 2: custom_llm_judge_evaluator
+
+Arguments:
+```json
+"Create a second custom evaluator using LLM as judge to detect any obscenity in the input."
+```
 
 ### Step 3: register_evaluator_aif
 
+Arguments:
+```json
+"Register both custom evaluators to Azure AI Foundry."
+```
+
 ### Step 4: cloud_exp
+
+Arguments:
+```json
+"Run a cloud evaluation using the registered evaluators on an existing dataset in Azure AI Foundry."
+```
 

@@ -20,9 +20,9 @@ generate_plan_tool = {
                         "properties": {
                             "step": {"type": "integer"},
                             "function": {"type": "string"},
-                            "arguments": {"type": "object"}
+                            "arguments": {"type": "string"}
                         },
-                        "required": ["step", "function"]
+                        "required": ["step", "function", "arguments"],
                     }
                 }
             },
@@ -47,7 +47,7 @@ def generate_plan(goal):
         model="gpt-4",
         messages=messages,
         tools=[generate_plan_tool],
-        tool_choice={"type": "function", "function": {"name": "generate_plan"}},
+        # tool_choice={"type": "function", "function": {"name": "generate_plan"}},
         # tool_parameter=json.dumps({"goal": goal, "available_tools": TOOLS})
     )
 
