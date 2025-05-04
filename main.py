@@ -64,7 +64,7 @@ def display_plan(plan):
 def save_plan_to_readme(ra_title, user_goal, plan):
     readme_path = os.path.join('reference_architecture', f'{ra_title}.md')
     
-    content = f"# Execution Plan\n\n## User Goal\n\n{user_goal}\n\n## Generated Plan\n\n"
+    content = f"## User Goal\n\n{user_goal}\n\n## Execution Plan\n\n"
     for step in plan:
         content += f"### Step {step['step']}: {step['function']}\n\n"
         if 'arguments' in step and step['arguments']:
