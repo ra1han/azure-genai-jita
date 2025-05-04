@@ -10,6 +10,9 @@ from openai import AzureOpenAI
 with open(os.path.join('tools', 'tools.json'), 'r') as f:
     TOOLS = json.load(f)
 
+with open(os.path.join('prompts', 'planner.md'), 'r') as f:
+    system_prompt = f.read()
+
 # ------------------ Planner Tool -------------------
 
 generate_plan_tool = {
@@ -44,7 +47,7 @@ generate_plan_tool = {
 # 🔹 Function to request a plan from OpenAI
 def generate_plan(goal):
     messages = [
-        {"role": "system", "content": f"You are a software architect who designs reference architectures. You have a set of certified tools. You prioritize the use of the certified tools over any other tools. If a task can't be developed using the cretified tools, you recommend cusotm steps. Certified tools: {json.dumps(TOOLS)}"},
+        {"role": "system", "content": system_prompt},
         {"role": "user", "content": goal}
     ]
 

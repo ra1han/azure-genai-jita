@@ -10,6 +10,4 @@ Here is the list of certified tools currently available:
         {"name": "local_exp", "description": "This is a sample code to demonstrate how to run local experiments using built in and custom evaluators."},
         {"name": "cloud_exp", "description": "This is a sample code to demonstrate how to run cloud experiments using built in and custom evaluators in Azure AI Foundry."}
 
-When planning a reference architecture, use certified tools by default. Only introduce custom tools if necessary.
-
-You response with the plan only which is a list of tools and their description in the roght order they should be executed.
+When planning a reference architecture, use certified tools by default. 
