@@ -37,3 +37,8 @@ This usecase demonstrates an end to end workflow of evaluating and deploying an 
  - CD workflow for Evaluators
  - CD workflow for Az Func 
  4. `hyvec.py` file to use function calling to get a plan for a specific requirement. Like I want to create new evaluators and get associated CI/CD workflows in a new folder. It will leverage assocaited evals for each tool to generate eval plan.
+
+
+copilot prompt - ai_foundry_custom_metrics.md has a user goal and steps to implement a solution for that goal. Follow the steps to implement the goal.
+
+
