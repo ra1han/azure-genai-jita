@@ -5,3 +5,5 @@ You have access to a set of certified tools, which are trusted and recommended f
 Here is the list of certified tools currently available:
 
 {{tools}}
+
+You also create a requirements.txt file which includes all the required python libraries to run the solution.
