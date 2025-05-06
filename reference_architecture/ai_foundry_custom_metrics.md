@@ -11,7 +11,7 @@ Check tools/custom_evaluator folder for sample implementation of custom evaluato
 
 Arguments:
 ```json
-"Implement a new custom evaluator named 'input_length_evaluator' that calculates the length of the input."
+"Implement a custom evaluator to calculate the length of the input as a metric in the Azure AI Evaluation SDK."
 ```
 
 ### Step 2: custom_llm_judge_evaluator
@@ -20,7 +20,7 @@ Check tools/custom_llm_judge_evaluator folder for sample implementation of custo
 
 Arguments:
 ```json
-"Implement a new custom evaluator named 'obscenity_judge_evaluator' that uses an LLM to detect obscenity in the input."
+"Implement a custom evaluator where LLM acts as a judge to detect any obscenity in the input."
 ```
 
 ### Step 3: register_evaluator_aif
@@ -29,16 +29,16 @@ Check tools/register_evaluator_aif folder for sample implementation of custom ev
 
 Arguments:
 ```json
-"Register both 'input_length_evaluator' and 'obscenity_judge_evaluator' to Azure AI Foundry."
+"Register both custom evaluators (length metric and obscenity detection) in Azure AI Foundry."
 ```
 
-### Step 4: upload_and_create_dataset_aif
+### Step 4: local_exp
 
-There is no sample implementation, generate your own code.
+Check tools/local_exp folder for sample implementation of custom evaluator.
 
 Arguments:
 ```json
-"Upload the local JSONL file to Azure AI Foundry and create a new dataset in Azure AI Foundry."
+"Upload a local jsonl file to AI Foundry to create a dataset in Azure AI Foundry."
 ```
 
 ### Step 5: cloud_exp
@@ -47,15 +47,6 @@ Check tools/cloud_exp folder for sample implementation of custom evaluator.
 
 Arguments:
 ```json
-"Run a cloud evaluation with the existing dataset in Azure AI Foundry using both 'input_length_evaluator' and 'obscenity_judge_evaluator' as metrics."
-```
-
-### Step 6: requirements.txt
-
-There is no sample implementation, generate your own code.
-
-Arguments:
-```json
-"Include azure-ai-eval, azure-ai-foundry, openai (or the relevant LLM library), and any other necessary libraries required for the custom evaluators and the AI Foundry operations."
+"Run a cloud evaluation using the two custom metrics with an existing dataset in Azure AI Foundry."
 ```
 
