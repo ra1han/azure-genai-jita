@@ -62,7 +62,6 @@ def display_plan(plan):
 def save_plan_to_readme(ra_title, user_goal, plan):
     readme_path = os.path.join('reference_architecture', f'{ra_title}.md')
     
-    # Read tools from tools.jsonl
     available_tools = []
     with open(os.path.join('tools', 'tools.jsonl'), 'r') as f:
         for line in f:
@@ -70,9 +69,12 @@ def save_plan_to_readme(ra_title, user_goal, plan):
                 tool = json.loads(line)
                 available_tools.append(tool.get('name'))
     
-    content = f"## User Goal\n\n{user_goal}\n\n\
-                ## Constrain\n\nAll code changes should involve only new code generation without modifying existing code. Place all new code in the reference_architecture folder. Except github workflow, which needs to be in a seperate directory.\n\n\
-                ## Execution Plan\n\n"
+    template_path = os.path.join('prompts/solution_prompt_template.md')
+    with open(template_path, 'r') as f:
+        content = f.read()
+
+    content = content.replace("{user_goal}", user_goal)
+
     for step in plan:
         content += f"### Step {step['step']}: {step['function']}\n\n"
         # Check if the function exists in tools.jsonl
