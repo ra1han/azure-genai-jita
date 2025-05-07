@@ -74,6 +74,7 @@ def save_plan_to_readme(ra_title, user_goal, plan):
         content = f.read()
 
     content = content.replace("{user_goal}", user_goal)
+    content += "\n\n"
 
     for step in plan:
         content += f"### Step {step['step']}: {step['function']}\n\n"
